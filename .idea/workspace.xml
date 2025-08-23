@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="740de698-2623-4f4f-9bee-ad52dc7f4cc4" name="Changes" comment="Initial Commit">
-      <change afterPath="$PROJECT_DIR$/models/evaluator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/models.py" afterDir="false" />
+    <list default="true" id="740de698-2623-4f4f-9bee-ad52dc7f4cc4" name="Changes" comment="Text Evaluator and test for the evaluator.">
+      <change afterPath="$PROJECT_DIR$/models/evaluator_vis.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/models_vis.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,13 +49,15 @@
   "keyToString": {
     "Python.DataPreparation.executor": "Run",
     "Python.models.executor": "Run",
+    "Python.models_vis.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/rauan/Desenvolvimento/Python/Projetos/AmazonReview/data"
+    "last_opened_file_path": "/home/rauan/Desenvolvimento/Python/Projetos/AmazonReview/models"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/models" />
       <recent name="$PROJECT_DIR$/data" />
     </key>
   </component>
@@ -83,11 +85,20 @@
       <option name="project" value="LOCAL" />
       <updated>1755880393524</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Text Evaluator and test for the evaluator.">
+      <option name="closed" value="true" />
+      <created>1755886570419</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1755886570419</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial Commit" />
+    <MESSAGE value="Text Evaluator and test for the evaluator." />
+    <option name="LAST_COMMIT_MESSAGE" value="Text Evaluator and test for the evaluator." />
   </component>
 </project>
