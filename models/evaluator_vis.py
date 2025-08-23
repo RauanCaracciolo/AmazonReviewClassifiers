@@ -1,7 +1,6 @@
 from dataclasses import dataclass
-from typing import Dict, Any, Iterable, Union
+from typing import Iterable, Union
 import numpy as np
-import pandas as pd
 import scipy.sparse as sp
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -68,7 +67,6 @@ def evaluate_models(evaluator, models, average="weighted", plot=False):
     n_models = len(models)
 
     if plot:
-        # Criar figura única: 3 colunas (metrics, cm, roc) para cada modelo
         fig, axes = plt.subplots(n_models, 3, figsize=(16, 5 * n_models))
         if n_models == 1:  # caso especial para apenas um modelo
             axes = np.expand_dims(axes, axis=0)
@@ -83,23 +81,22 @@ def evaluate_models(evaluator, models, average="weighted", plot=False):
             roc = res["roc"]
             y_score = res["y_score"]
 
-            # 1) Metrics
             sns.barplot(
                 x=list(metrics.keys()),
                 y=list(metrics.values()),
+                hue=list(metrics.keys()),
                 ax=axes[idx, 0],
-                palette="Blues_d"
+                palette="Blues_d",
+                legend=False
             )
             axes[idx, 0].set_ylim(0, 1)
             axes[idx, 0].set_title(f"Metrics - {res['model']}")
 
-            # 2) Confusion Matrix
             sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", cbar=False, ax=axes[idx, 1])
             axes[idx, 1].set_title("Confusion Matrix")
             axes[idx, 1].set_xlabel("Predicted")
             axes[idx, 1].set_ylabel("True")
 
-            # 3) ROC Curve (se aplicável)
             if roc and y_score is not None:
                 fpr, tpr, _ = roc_curve(evaluator.y_test, y_score)
                 axes[idx, 2].plot(fpr, tpr, label=f"AUC={roc:.2f}")
