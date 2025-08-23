@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="740de698-2623-4f4f-9bee-ad52dc7f4cc4" name="Changes" comment="Text Evaluator and test for the evaluator.">
-      <change afterPath="$PROJECT_DIR$/models/evaluator_vis.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/models_vis.py" afterDir="false" />
+    <list default="true" id="740de698-2623-4f4f-9bee-ad52dc7f4cc4" name="Changes" comment="Evaluator with Pyplot and it test.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/evaluator_vis.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/evaluator_vis.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +47,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Python.DataPreparation.executor": "Run",
+    "Python.evaluator_vis.executor": "Run",
     "Python.models.executor": "Run",
     "Python.models_vis.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -93,12 +93,21 @@
       <option name="project" value="LOCAL" />
       <updated>1755886570419</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Evaluator with Pyplot and it test.">
+      <option name="closed" value="true" />
+      <created>1755947660679</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1755947660679</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Commit" />
     <MESSAGE value="Text Evaluator and test for the evaluator." />
-    <option name="LAST_COMMIT_MESSAGE" value="Text Evaluator and test for the evaluator." />
+    <MESSAGE value="Evaluator with Pyplot and it test." />
+    <option name="LAST_COMMIT_MESSAGE" value="Evaluator with Pyplot and it test." />
   </component>
 </project>
