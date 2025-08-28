@@ -1,6 +1,7 @@
 import pandas as pd
 import scipy.sparse as sp
 import re
+from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 #Read the dataset, I didn't add the raw archive because he is too big, so the link is in DataLink.txt.
 reviews_df = pd.read_csv('../data/Reviews.csv')
@@ -17,11 +18,20 @@ def clear_text(text):
     return text
 #Aplly the function to all rows.
 reviews_df['Summary'] = reviews_df['Summary'].apply(clear_text)
-#Vectorize the data in numeric data.
-vec = TfidfVectorizer(max_features=5000, ngram_range=(1,2))
-x = vec.fit_transform(reviews_df['Summary'])
+x = reviews_df['Summary']
 #Get the label por the y.
 y = reviews_df['Label']
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42, stratify=y)
+#Vectorize the data in numeric data.
+vec = TfidfVectorizer(max_features=5000, ngram_range=(1,2))
+
+#Separates the data to vectorizes it, before, the data is vectorized toghether, but this cause a Data Leak.
+x_train_vec = vec.fit_transform(x_train)
+x_test_vec = vec.fit_transform(x_test)
+
 #Save the data to use in another file.
-sp.save_npz('../data/Reviews_prepared_x', x)
-pd.DataFrame(y).to_csv("../data/Reviews_prepared_y.csv", index=False)
+sp.save_npz('../data/Reviews_train_x', x_train_vec)
+sp.save_npz('../data/Reviews_test_x', x_test_vec)
+
+pd.DataFrame(y_train).to_csv("../data/Reviews_train_y.csv", index=False)
+pd.DataFrame(y_test).to_csv('../data/Reviews_test_y.csv', index = False)
