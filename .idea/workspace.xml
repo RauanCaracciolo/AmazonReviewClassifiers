@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="740de698-2623-4f4f-9bee-ad52dc7f4cc4" name="Changes" comment="Bug fixing">
-      <change afterPath="$PROJECT_DIR$/data/Reviews_test_x.npz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/Reviews_test_y.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Reviews_prepared_x.npz" beforeDir="false" afterPath="$PROJECT_DIR$/data/Reviews_train_x.npz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Reviews_prepared_y.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/Reviews_train_y.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/evaluator.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/evaluator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/evaluator_vis.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/evaluator_vis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/models_vis.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/models_vis.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/preparation/DataPreparation.py" beforeDir="false" afterPath="$PROJECT_DIR$/preparation/DataPreparation.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,18 +48,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.DataPreparation.executor&quot;: &quot;Run&quot;,
-    &quot;Python.evaluator_vis.executor&quot;: &quot;Run&quot;,
-    &quot;Python.models.executor&quot;: &quot;Run&quot;,
-    &quot;Python.models_vis.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/rauan/Desenvolvimento/Python/Projetos/AmazonReview/models&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.DataPreparation.executor": "Run",
+    "Python.evaluator.executor": "Run",
+    "Python.evaluator_vis.executor": "Run",
+    "Python.models.executor": "Run",
+    "Python.models_vis.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/home/rauan/Desenvolvimento/Python/Projetos/AmazonReview/models"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/models" />

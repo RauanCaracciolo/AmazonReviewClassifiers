@@ -20,30 +20,17 @@ ArrayLike = Union[np.ndarray, sp.spmatrix]
 
 @dataclass
 class TextModelEvaluator:
-    #X = Features
-    X: ArrayLike
-    #Y = Labels
-    y: Iterable
-    #Test size, in this case, 20% of the dataset is used to test and 80% to train.
-    test_size: float = 0.2
-    #A fixed 'Seed' to create replicable results.
-    random_state: int = 42
-    #Mantain the proportions of classes equals in the train and test.
-    stratify: bool = True
-
-    #Especial method for the dataclass, separate in train and test data in initialization.
-    def __post_init__(self):
-        strat = self.y if self.stratify else None
-        self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(
-            self.X, self.y, test_size=self.test_size, random_state=self.random_state, stratify=strat
-        )
+    x_train: ArrayLike
+    x_test: ArrayLike
+    y_train: Iterable
+    y_test: Iterable
     #Class to train and evaluate the models.
     #Average: "binary" for binary classifications; macro;weighted for multiclass.
     def evaluate(self, model, average: str = "binary") -> Dict[str, Any]:
         #Train the model with the correct data.
-        model.fit(self.X_train, self.y_train)
+        model.fit(self.x_train, self.y_train)
         #Predict with the test x.
-        y_pred = model.predict(self.X_test)
+        y_pred = model.predict(self.x_test)
         #Calculates the accuracy, precision, recall and f1 score.
         acc = accuracy_score(self.y_test, y_pred)
         prec, rec, f1, _ = precision_recall_fscore_support(
@@ -54,9 +41,9 @@ class TextModelEvaluator:
         #Some models have a continuous score, so this calculates it they have predict_proba, decision_function.
         try:
             if hasattr(model, "predict_proba"):
-                y_score = model.predict_proba(self.X_test)[:, 1]
+                y_score = model.predict_proba(self.x_test)[:, 1]
             elif hasattr(model, "decision_function"):
-                y_score = model.decision_function(self.X_test)
+                y_score = model.decision_function(self.x_test)
             else:
                 y_score = None
             if y_score is not None and len(np.unique(self.y_test)) == 2:
@@ -77,23 +64,6 @@ class TextModelEvaluator:
             "classification_report": classification_report(self.y_test, y_pred, zero_division=0),
             "fitted_model": model,
         }
-    #Method for cross validation.
-    def cross_validate(self, model, cv: int = 5,
-                       scoring=("accuracy", "precision", "recall", "f1"),
-                       n_jobs: int = -1) -> Dict[str, Any]:
-        res = cross_validate(model, self.X, self.y, cv=cv, scoring=scoring,
-                             n_jobs=n_jobs, return_train_score=False)
-        mean_scores = {k.replace("test_", ""): float(np.mean(v))
-                       for k, v in res.items() if k.startswith("test_")}
-        mean_scores["model"] = model.__class__.__name__
-        return {"cv_raw": res, "cv_mean": mean_scores}
-    #Method for grid search.
-    def grid_search(self, model, param_grid: Dict[str, Any], cv: int = 5,
-                    scoring: str = "f1", n_jobs: int = -1) -> GridSearchCV:
-        gs = GridSearchCV(model, param_grid, cv=cv, scoring=scoring, n_jobs=n_jobs)
-        gs.fit(self.X_train, self.y_train)
-        return gs
-
 #Compare all the models and give the better one, with higher scores.
 def evaluate_models(evaluator: TextModelEvaluator, models: Dict[str, Any],
                     average: str = "binary") -> pd.DataFrame:

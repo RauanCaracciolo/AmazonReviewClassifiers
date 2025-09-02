@@ -16,17 +16,12 @@ ArrayLike = Union[np.ndarray, sp.spmatrix]
 
 @dataclass
 class TextModelEvaluator:
-    x: ArrayLike
-    y: Iterable
-    test_size: float = 0.2
-    random_state: int = 42
-    stratify: bool = True
+    x_train: ArrayLike
+    x_test: ArrayLike
+    y_train: Iterable
+    y_test: Iterable
 
-    def __post_init__(self):
-        strat = self.y if self.stratify else None
-        self.x_train, self.x_test, self.y_train, self.y_test = train_test_split(
-            self.x, self.y, test_size=self.test_size, random_state=self.random_state, stratify=strat
-        )
+
 
     def evaluate(self, model, average: str = "binary"):
         model.fit(self.x_train, self.y_train)

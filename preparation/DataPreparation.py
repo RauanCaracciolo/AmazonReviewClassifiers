@@ -29,9 +29,10 @@ vec = TfidfVectorizer(max_features=5000, ngram_range=(1,2))
 x_train_vec = vec.fit_transform(x_train)
 x_test_vec = vec.fit_transform(x_test)
 
-#Save the data to use in another file.
+#Save the x data in another file.
 sp.save_npz('../data/Reviews_train_x', x_train_vec)
 sp.save_npz('../data/Reviews_test_x', x_test_vec)
 
+#Save the y data in another file.
 pd.DataFrame(y_train).to_csv("../data/Reviews_train_y.csv", index=False)
 pd.DataFrame(y_test).to_csv('../data/Reviews_test_y.csv', index = False)
