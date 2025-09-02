@@ -25,4 +25,7 @@ First, we need to treat the data to utilize in a machine learning model.
 ### Evaluating and comparing models
 In this project, i put a little more efort to create two classes to evaluate the binary classification models, one returns a text evaluation and the other a visual evaluation with pyplot, feel free to utilize this generic classes, in the next projects i made with this type of classification i will use them too.
 
-<img width="1366" height="657" alt="Figure_1" src="https://github.com/user-attachments/assets/bb28eb2b-4652-4e0e-a8ca-49e4dacd10dc" />
+<img width="1366" height="657" alt="Figure_1" src="https://github.com/user-attachments/assets/384774bc-7b04-4c04-978f-d918749afac8" />
+
+
+
